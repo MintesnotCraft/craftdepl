@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b3026908-fe8d-4603-8522-66cdcc058a80" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="craftdeplFlow" doc:id="28516c02-0156-4ba2-aea2-b808be410063" >
+		<http:listener doc:name="Listener" doc:id="39bf79f3-cce5-4890-80b1-075817c32800" config-ref="HTTP_Listener_config" path="/craft"/>
+		<ee:transform doc:name="Transform Message" doc:id="b8d2e86e-bea2-4bc3-aec2-fae8aa91d7ce" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"msg": "Hello this is craft software technologies"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="craftdeplFlow1" doc:id="023df035-4471-48d3-bc18-7b1bcc982fa8" >
+		<http:listener doc:name="Listener" doc:id="f16321c6-cfba-4da3-82f4-6a6e6223c0c9" config-ref="HTTP_Listener_config" path="/walia"/>
+		<http:request method="GET" doc:name="Request" doc:id="ef8d4422-9d83-405b-81b6-7d7fa568104d" url="https://jsonplaceholder.typicode.com/posts"/>
+		<ee:transform doc:name="Transform Message" doc:id="0b28a944-436b-4484-8fe0-0be0f45db132" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
