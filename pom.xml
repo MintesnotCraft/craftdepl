@@ -31,7 +31,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>---- select project type ----</classifier>
-					<cloudHub2Deployment>
+					<cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <muleVersion>4.6-java17</muleVersion>
                         <username>waliacoder</username>
@@ -42,7 +42,7 @@
                         <workerType>Micro</workerType>
                         <workers>1</workers>
                         <objectStoreV2>true</objectStoreV2>
-                    </cloudHub2Deployment>
+                    </cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
