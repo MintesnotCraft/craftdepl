@@ -22,7 +22,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.8.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
@@ -31,7 +31,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>---- select project type ----</classifier>
-					<cloudHubDeployment>
+					<cloudHub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <muleVersion>4.6-java17</muleVersion>
                         <username>waliacoder</username>
@@ -42,7 +42,7 @@
                         <workerType>Micro</workerType>
                         <workers>1</workers>
                         <objectStoreV2>true</objectStoreV2>
-                    </cloudHubDeployment>
+                    </cloudHub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
